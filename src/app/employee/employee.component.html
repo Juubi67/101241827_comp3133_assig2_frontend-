@@ -1,0 +1,22 @@
+<div class="container mx-auto">
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">First Name</th>
+        <th class="px-4 py-2">Last Name</th>
+        <th class="px-4 py-2">Email</th>
+        <th class="px-4 py-2">Gender</th>
+        <th class="px-4 py-2">Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees" class="bg-gray-200">
+        <td class="border px-4 py-2">{{ employee.first_name }}</td>
+        <td class="border px-4 py-2">{{ employee.last_name }}</td>
+        <td class="border px-4 py-2">{{ employee.email }}</td>
+        <td class="border px-4 py-2">{{ employee.gender }}</td>
+        <td class="border px-4 py-2">{{ employee.salary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
