@@ -3,7 +3,9 @@ import { HttpLink } from 'apollo-angular/http';
 import { ApplicationConfig, inject } from '@angular/core';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 
-const uri = 'http://localhost:3000/graphql';
+const uri =
+  'https://comp3133101241827assignment2-d291faa75e77.herokuapp.com/graphql';
+
 export function apolloOptionsFactory(): ApolloClientOptions<any> {
   const httpLink = inject(HttpLink);
   return {
