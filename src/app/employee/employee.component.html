@@ -1,22 +1,100 @@
-<div class="container mx-auto">
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th class="px-4 py-2">First Name</th>
-        <th class="px-4 py-2">Last Name</th>
-        <th class="px-4 py-2">Email</th>
-        <th class="px-4 py-2">Gender</th>
-        <th class="px-4 py-2">Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees" class="bg-gray-200">
-        <td class="border px-4 py-2">{{ employee.first_name }}</td>
-        <td class="border px-4 py-2">{{ employee.last_name }}</td>
-        <td class="border px-4 py-2">{{ employee.email }}</td>
-        <td class="border px-4 py-2">{{ employee.gender }}</td>
-        <td class="border px-4 py-2">{{ employee.salary }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div
+  class="w-full max-w-screen-lg min-h-screen flex flex-col items-center justify-center mx-auto"
+>
+  <div *ngIf="isUser" class="w-full">
+    <div class="mb-2 w-full flex justify-end">
+      <a
+        *ngIf="employees.length > 0"
+        class="mt-5 px-3 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded-xl"
+        href="/employee/create"
+      >
+        Add new employee
+      </a>
+      <button
+        (click)="logout()"
+        class="mt-5 px-3 py-2 text-sm bg-gray-300 text-gray-800 hover:bg-gray-400 rounded-xl"
+        href="/employee/create"
+      >
+        logout
+      </button>
+    </div>
+    <table class="table-auto w-full rounded-xl overflow-hidden">
+      <thead class="bg-gray-800">
+        <tr class="border p-3">
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            First Name
+          </th>
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            Last Name
+          </th>
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            Email
+          </th>
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            Gender
+          </th>
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            Salary
+          </th>
+          <th class="text-xs uppercase tracking-wide text-white px-4 py-2">
+            ACTIONS
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees" class="">
+          <td class="text-sm border px-4 py-2">{{ employee.first_name }}</td>
+          <td class="text-sm border px-4 py-2">{{ employee.last_name }}</td>
+          <td class="text-sm border px-4 py-2">{{ employee.email }}</td>
+          <td class="text-sm border px-4 py-2">{{ employee.gender }}</td>
+          <td class="text-sm border px-4 py-2">{{ employee.salary }}</td>
+          <td class="text-sm border px-4 py-2 space-x-3">
+            <a
+              class="px-2 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded-xl"
+              [routerLink]="['/employee/view', employee._id]"
+              >View</a
+            >
+            <a
+              class="px-2 py-2 text-sm bg-green-600 text-white hover:bg-green-700 rounded-xl"
+              [routerLink]="['/employee/edit', employee._id]"
+              >Edit</a
+            >
+            <button
+              class="px-2 py-2 text-sm bg-red-600 text-white hover:bg-red-700 rounded-xl"
+              (click)="delete(employee._id)"
+            >
+              delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      *ngIf="employees.length <= 0"
+      class="w-full mt-10 flex flex-col items-center justify-center"
+    >
+      <p class="italic text-xs text-gray-600">No employees to show</p>
+      <a
+        class="mt-5 px-3 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded-xl"
+        href="/employee/create"
+      >
+        Add new employee
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="!isUser" class="flex items-center justify-center gap-3">
+    <a
+      class="mt-5 px-3 py-2 text-sm bg-gray-300 text-gray-800 hover:bg-gray-400 rounded-xl"
+      href="/signin"
+    >
+      Sign in
+    </a>
+    <a
+      class="mt-5 px-3 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded-xl"
+      href="/signup"
+    >
+      Register
+    </a>
+  </div>
 </div>

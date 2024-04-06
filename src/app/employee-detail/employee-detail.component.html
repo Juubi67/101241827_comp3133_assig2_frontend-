@@ -1,0 +1,27 @@
+<div
+  *ngIf="employee"
+  class="max-w-md mx-auto bg-white shadow-md rounded px-8 py-6 mb-4"
+>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2"
+      >First Name:</label
+    >
+    <p class="text-gray-900">{{ employee.first_name }}</p>
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
+    <p class="text-gray-900">{{ employee.last_name }}</p>
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+    <p class="text-gray-900">{{ employee.email }}</p>
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Gender:</label>
+    <p class="text-gray-900">{{ employee.gender }}</p>
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Salary:</label>
+    <p class="text-gray-900">{{ employee.salary }}</p>
+  </div>
+</div>

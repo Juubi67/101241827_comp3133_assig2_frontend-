@@ -22,7 +22,6 @@ export class CreateEmployeeComponent {
   constructor(private apollo: Apollo, private router: Router) {}
 
   onSubmit() {
-    console.log({ form: this.formData });
     this.apollo
       .mutate({
         mutation: gql`

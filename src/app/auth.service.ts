@@ -43,7 +43,7 @@ export class AuthService {
       );
   }
 
-  register(username: string, email: string, password: string) {
+  register(username: string, password: string, email: string) {
     this.apollo
       .mutate({
         mutation: gql`
